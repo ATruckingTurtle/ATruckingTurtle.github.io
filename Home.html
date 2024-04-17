@@ -3,20 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CSS Resources</title>
+    <title>JD's Geology Corner!</title>
 </head>
 
 <body>
     <main>
+        <h1> Welcome To JD's Geology Corner!</h1>
+
         <nav>
             <ul>
                 <li><a href="Home.html">Home</a></li>
                 <li><a href="Quartz.html">Quartz</a></li>
                 <li><a href="Topaz.html">Topaz</a></li>
-                <li><a href="Garnet">Garnet</a></li>
+                <li><a href="Garnet.html">Garnet</a></li>
+                <li><a href="Labradorite.html">Labradorite</a></li>
+                <li><a href="Starolite.html">Starolite</a></li>
+                <li><a href="Granite.html">Granite</a></li>
             </ul>
         </nav>
 
+        
+        <a href="#" onclick="random()">
+            <img src="images/MagicEight.jpg" alt="Click for Random Mineral!">
+        </a>
 
+    <script>
+        function random() {            
+            var urls = ["Topaz.html", "Labradorite.html", "Granite.html", "Quartz.html", "Starolite.html", "Garnet.html"];
+
+            var randomIndex = Math.floor(Math.random() * urls.length);
+
+            window.location.href = urls[randomIndex];
+        }
+    </script>
+
+        <h4>*Disclaimer section*</h4>
+        <p>This is strictly for education purposes. No economic gain is saught here nor intentions of stealing work from others. This is intended as a learning experience for the student in question.</p>
     </main>
 </body>
