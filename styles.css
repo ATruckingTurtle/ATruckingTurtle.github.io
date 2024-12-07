@@ -1,0 +1,307 @@
+/* Shared Page Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #4a90e2, #f2994a);
+    min-height: 100vh; /* Use min-height to allow the content to grow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Align content to the top for scrolling */
+    overflow: auto; /* Enable scrolling when needed */
+    padding-top: 80px; /* Adjust for navbar height */
+}
+
+/* Title Styling */
+.honk {
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "MORF" 15, "SHLN" 50;
+    font-size: 4em;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    margin: 0;
+    color: white;
+}
+
+h1, h2 {
+    color: #620000;
+}
+
+/* Info Section Styling */
+.info-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Space between text and image */
+    margin: 20px 0; /* Spacing above and below */
+}
+
+.info-text {
+    flex: 1; /* Allow the text to take up remaining space */
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.info-image {
+    flex: 1; /* Allow the image to take up remaining space */
+    text-align: center;
+}
+
+.info-image img {
+    max-width: 100%; /* Ensure the image fits within the container */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+    position: fixed; /* Fixes the navbar to the top */
+    top: 0; /* Ensures it stays at the top */
+    left: 0;
+    right: 0;
+    width: 100%; /* Spans the full width of the page */
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds a shadow for better visibility */
+    z-index: 1000; /* Ensures it stays above other elements */
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4a90e2; /* Matches your theme */
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #620000;
+}
+
+/* Top Countries Grid */
+.top-countries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.country img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.country img:hover {
+    transform: scale(1.05);
+}
+
+.country p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Map Container Styling */
+.map-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+iframe {
+    border: 0;
+    width: 100%;
+    height: 400px;
+    max-width: 600px;
+}
+
+/* Popup Styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    display: none;
+}
+
+.popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.popup button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* Search Box Styling */
+.search-container {
+    position: absolute;
+    top: 100px;
+    right: 40px;
+    width: 300px;
+}
+
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.search-container input[type="submit"] {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container input[type="submit"]:hover {
+    background: #ffffff;
+}
+
+/* Title and Buttons Container */
+.title-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+.nav-buttons {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-buttons a:hover {
+    background: #ffffff;
+}
+
+.batu-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.batu-section img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.batu-section .text-box {
+    flex: 1;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.top-countries {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.country {
+    text-align: center;
+}
+
+.country img {
+    width: 150px; /* Set a consistent flag width */
+    height: 100px; /* Set a consistent flag height */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.country img:hover {
+    transform: scale(1.1);
+}
+
+.country p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#successMessage {
+    font-size: 1.2em;
+    line-height: 1.5;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

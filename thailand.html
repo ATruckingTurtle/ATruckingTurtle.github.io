@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <title>Thailand</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Use the same CSS as other pages -->
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topcountries.html">Popular Countries</a></li>
+            <li><a href="form.html">Create a Post</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="honk">Let's Go</h1>
+   
+    <div class="nav-buttons">
+        <a href="#" onclick="showLogin()">Log In</a>
+        <a href="#" onclick="showRegister()">Register</a>
+    </div>
+
+    <!-- Login Popup -->
+    <div class="popup" id="loginPopup">
+        <form onsubmit="handleLogin(event)">
+            <h2>Log In</h2>
+            <input type="text" placeholder="Username or Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Register Popup -->
+    <div class="popup" id="registerPopup">
+        <form onsubmit="handleRegister(event)">
+            <h2>Register</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Re-type Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="search-container">
+        <form>
+            <input type="text" placeholder="Search" id="search">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="popup" id="successPopup">
+        <p id="popupMessage"></p>
+        <button onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById("loginPopup").style.display = "block";
+        }
+
+        function showRegister() {
+            document.getElementById("registerPopup").style.display = "block";
+        }
+
+        function hidePopup() {
+            document.getElementById("loginPopup").style.display = "none";
+            document.getElementById("registerPopup").style.display = "none";
+            document.getElementById("successPopup").style.display = "none";
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            hidePopup();
+            showSuccessMessage("Log In Successful!");
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            hidePopup();
+            showSuccessMessage("Registration Successful!");
+        }
+
+        function showSuccessMessage(message) {
+            const popup = document.getElementById("successPopup");
+            const popupMessage = document.getElementById("popupMessage");
+            popupMessage.textContent = message;
+            popup.style.display = "block";
+        }
+    </script>
+
+    <!-- Page Content -->
+    <header>
+        <h1>Welcome to Thailand</h1>
+        <p>Explore the beauty, culture, and opportunities Thailand offers for immigrants!</p>
+    </header>
+    
+    <section class="country-info">
+        <h2>Why Choose Thailand?</h2>
+        <p>Thailand is renowned for its stunning beaches, vibrant culture, and affordable cost of living. 
+           From bustling cities like Bangkok to serene islands like Phuket, Thailand offers a lifestyle for everyone. 
+           With a warm climate, friendly locals, and rich traditions, it's no wonder Thailand is a top choice for expatriates.</p>
+    </section>
+    
+    <section class="country-image">
+        <img src="images/Thailand/grand-palace-1822487_1280.jpg" alt="Bangkok Skyline" style="width: 100%; height: auto;">
+    </section>
+    
+    <section class="living-info">
+        <h2>Cost of Living</h2>
+        <p>Thailand offers a significantly lower cost of living compared to the US. Accommodation, food, and transportation are affordable, 
+           making it an excellent destination for those seeking value for money. Whether you prefer urban living or a quiet retreat, Thailand has it all.</p>
+    </section>
+    
+    <section class="country-image">
+        <img src="images/Thailand/boats-628741_1280.jpg" alt="Phi Phi Islands" style="width: 100%; height: auto;">
+    </section>
+    
+    <section class="visa-info">
+        <h2>Culture</h2>
+        <p>Thailand's culture is deeply rooted in Buddhism, reflected in its temples, festivals, and daily life. 
+           From the famous Songkran Festival to traditional Thai cuisine, there is no shortage of cultural experiences to enjoy.</p>
+    </section>
+    
+    <section class="country-image">
+        <img src="images/Thailand/thailand-1018084_1280.jpg" alt="Temple in Chiang Mai" style="width: 100%; height: auto;">
+    </section>
+    
+    <section class="country-image">
+        <img src="images/Thailand/yipeng-4670044_640.jpg" alt="Thai Lantern" style="width: 100%; height: auto;">
+    </section>
+    
+    <section class="map-container">
+        <h2>Where is Thailand?</h2>
+        <!-- Google Maps Embed -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21362706.12067053!2d97.34345694167317!3d13.817373141439272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2849ef2b28a43%3A0x130126a95c2d3d93!2sThailand!5e0!3m2!1sen!2sus!4v1701546756601!5m2!1sen!2sus" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <title>Top Countries</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="honk">Let's Go</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="form.html">Create a Post</a></li>
+            <li><a href="topcountries.html">Top Countries</a></li>
+        </ul>
+    </nav>
+    <div class="nav-buttons">
+        <a href="#" onclick="showLogin()">Log In</a>
+        <a href="#" onclick="showRegister()">Register</a>
+    </div>
+
+    <!-- Page Content -->
+    <header>
+        <h1><br><br>Popular Countries for Immigration</h1>
+        <p>Explore the top destinations for US citizens looking to move abroad. Click on a flag to learn more about each country!</p>
+    </header>
+
+    <section class="top-countries">
+        <div class="country">
+            <a href="mexico.html">
+                <img src="/Images/mexico/mexican-flag-3001452_640.png" alt="Mexico Flag">
+                <p>Mexico</p>
+            </a>
+        </div>
+        <div class="country">
+            <a href="costarica.html">
+                <img src="/Images/costa_rica/640px-Flag_of_Costa_Rica_(state).svg.png" alt="Costa Rica Flag">
+                <p>Costa Rica</p>
+            </a>
+        </div>
+        <div class="country">
+            <a href="thailand.html">
+                <img src="/Images/thailand/512px-Flag_of_Thailand.svg.png" alt="Thailand Flag">
+                <p>Thailand</p>
+            </a>
+        </div>
+        <div class="country">
+            <a href="switzerland.html">
+                <img src="/Images/Switzerland/512px-Flag_of_Switzerland_(Pantone).svg.png" alt="Switzerland Flag">
+                <p>Switzerland</p>
+            </a>
+        </div>
+        <div class="country">
+            <a href="panama.html">
+                <img src="/Images/panama/512px-Flag_of_Panama.svg.png" alt="Panama Flag">
+                <p>Panama</p>
+            </a>
+        </div>
+        <div class="country">
+            <a href="malaysia.html">
+                <img src="/Images/malaysia/malaysia-flag.png" alt="Malaysia Flag">
+                <p>Malaysia</p>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        function showLogin() {
+            alert('Login modal would appear here.');
+        }
+
+        function showRegister() {
+            alert('Register modal would appear here.');
+        }
+
+        function searchCountries() {
+            const query = document.getElementById('search').value.toLowerCase();
+            alert('Search functionality is a placeholder for now. You searched: ' + query);
+        }
+    </script>
+</body>
+</html>

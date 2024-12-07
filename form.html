@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <title>Create a Post</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Form Page Specific Styling */
+        .form-container {
+            margin: 20px auto;
+            max-width: 1000px; /* Increased width */
+            background: rgba(255, 255, 255, 0.9);
+            padding: 60px; /* Increased padding */
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h1 {
+            color: #4a90e2;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em; /* Increased font size */
+        }
+
+        .form-container label {
+    font-weight: bold;
+    display: block;
+    margin: 15px 0 10px;
+    font-size: 1.2em; /* Increased font size */
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+    width: 100%;
+    padding: 15px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2em; /* Increased font size */
+}
+
+        .form-container textarea {
+            height: 150px;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-input {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tag-input input[type="text"] {
+            width: calc(100% - 100px); /* Reserve space for "Add Tag" button */
+        }
+
+        .common-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #4a90e2;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .common-options button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .common-options button:hover {
+            text-decoration: underline;
+        }
+
+        .form-container button[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #4a90e2;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button[type="submit"]:hover {
+            background: #367ab6;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="honk">Let's Go</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="form.html">Create a Post</a></li>
+            <li><a href="topcountries.html">Top Countries</a></li>
+        </ul>
+    </nav>
+    <div class="nav-buttons">
+        <a href="#" onclick="showLogin()">Log In</a>
+        <a href="#" onclick="showRegister()">Register</a>
+    </div>
+    <div class="form-container">
+        <h1>Create a Post</h1>
+
+        <!-- Title Input -->
+        <label for="title">Post Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter your post title..." required>
+
+        <!-- Post Content Text Area -->
+        <label for="postContent">Post Content:</label>
+        <textarea id="postContent" name="postContent" placeholder="Write your post here..." required></textarea>
+
+        <!-- Common Text Editing Options -->
+        <div class="common-options">
+            <button type="button" onclick="applyFormat('bold')"><b>B</b></button>
+            <button type="button" onclick="applyFormat('italic')"><i>I</i></button>
+            <button type="button" onclick="applyFormat('underline')"><u>U</u></button>
+            <button type="button" onclick="applyFormat('strikeThrough')"><s>S</s></button>
+            <button type="button" onclick="applyFormat('insertOrderedList')">OL</button>
+            <button type="button" onclick="applyFormat('insertUnorderedList')">UL</button>
+        </div>
+
+        <!-- Tags Input -->
+        <label for="tags">Tags:</label>
+        <div class="tags-container">
+            <div class="tag-input">
+                <input type="text" id="tags" name="tags" placeholder="Enter a tag...">
+                <button type="button" onclick="addTag()">Add Tag</button>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Post</button>
+
+        <div id="successMessage" style="display: none; text-align: center; margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px;">
+            Your post has been successfully submitted!
+        </div>
+
+    </div>
+
+    <script>
+
+        // Handle form submission
+document.querySelector('.form-container button[type="submit"]').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent default form submission
+    showSuccessMessage();
+});
+
+// Show success message
+function showSuccessMessage() {
+    const messageContainer = document.getElementById('successMessage');
+    messageContainer.style.display = 'block';
+
+    // Optionally hide the message after a few seconds
+    setTimeout(() => {
+        messageContainer.style.display = 'none';
+    }, 5000); // Hide after 5 seconds
+}
+
+        // Apply text formatting in the textarea
+        function applyFormat(command) {
+            document.execCommand(command, true, null);
+        }
+
+        // Functionality for tags
+        function addTag() {
+            const tagsContainer = document.querySelector('.tags-container');
+            const tagInput = document.querySelector('#tags');
+            const tagValue = tagInput.value.trim();
+
+            if (tagValue) {
+                const tagElement = document.createElement('span');
+                tagElement.textContent = tagValue;
+                tagElement.style.padding = '5px 10px';
+                tagElement.style.margin = '5px';
+                tagElement.style.backgroundColor = '#4a90e2';
+                tagElement.style.color = '#fff';
+                tagElement.style.borderRadius = '3px';
+                tagElement.style.display = 'inline-block';
+
+                // Append the tag to the container
+                tagsContainer.appendChild(tagElement);
+
+                // Clear input
+                tagInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

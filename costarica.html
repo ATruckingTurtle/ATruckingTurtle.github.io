@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <title>Costa Rica</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Use the same CSS as other pages -->
+
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topcountries.html">Popular Countries</a></li>
+            <li><a href="form.html">Create a Post</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="honk">Let's Go</h1>
+   
+    <div class="nav-buttons">
+        <a href="#" onclick="showLogin()">Log In</a>
+        <a href="#" onclick="showRegister()">Register</a>
+    </div>
+
+    <!-- Login Popup -->
+    <div class="popup" id="loginPopup">
+        <form onsubmit="handleLogin(event)">
+            <h2>Log In</h2>
+            <input type="text" placeholder="Username or Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Register Popup -->
+    <div class="popup" id="registerPopup">
+        <form onsubmit="handleRegister(event)">
+            <h2>Register</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Re-type Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="search-container">
+        <form>
+            <input type="text" placeholder="Search" id="search">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="popup" id="successPopup">
+        <p id="popupMessage"></p>
+        <button onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+        // Show Login Popup
+        function showLogin() {
+            document.getElementById("loginPopup").style.display = "block";
+        }
+
+        // Show Register Popup
+        function showRegister() {
+            document.getElementById("registerPopup").style.display = "block";
+        }
+
+        // Hide All Popups
+        function hidePopup() {
+            document.getElementById("loginPopup").style.display = "none";
+            document.getElementById("registerPopup").style.display = "none";
+            document.getElementById("successPopup").style.display = "none";
+        }
+
+        // Handle Login Form Submission
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            hidePopup();
+            showSuccessMessage("Log In Successful!");
+        }
+
+        // Handle Register Form Submission
+        function handleRegister(event) {
+            event.preventDefault(); // Prevent form submission
+            hidePopup();
+            showSuccessMessage("Registration Successful!");
+        }
+
+        // Show Success Message Popup
+        function showSuccessMessage(message) {
+            const popup = document.getElementById("successPopup");
+            const popupMessage = document.getElementById("popupMessage");
+            popupMessage.textContent = message;
+            popup.style.display = "block";
+        }
+    </script>
+
+    <!-- Page Content -->
+    <header>
+        <h1>Welcome to Costa Rica</h1>
+        <p>Learn why Costa Rica is an amazing destination for US immigrants!</p>
+    </header>
+
+    <section class="country-info">
+        <h2>Why Choose Costa Rica?</h2>
+        <p>Costa Rica is a Central American paradise known for its stable democracy, excellent healthcare, and breathtaking biodiversity. Whether you're looking for a fresh start or an adventure, Costa Rica has it all!</p>
+        <p>Costa Rica, known as the “Rich Coast,” offers a harmonious blend of natural beauty, cultural warmth, and modern amenities. It's a country celebrated for its stable democracy, low crime rates, and commitment to 
+            sustainability, making it one of the greenest nations in the world. With friendly locals, often referred to as "Ticos," and a welcoming "Pura Vida" philosophy that permeates daily life, Costa Rica provides an 
+            environment perfect for relaxation, adventure, and personal growth. From pristine beaches to lush rainforests teeming with wildlife, Costa Rica is a haven for anyone seeking a vibrant and fulfilling lifestyle.</p>
+    </section>
+
+    <section class="country-image">
+        <img src="images/costa_rica/waterfall-7295817_640.jpg" alt="Beautiful Costa Rica Landscape" style="width: 100%; height: auto;">
+    </section>
+
+    <section class="living-info">
+        <h2>Cost of Living</h2>
+        <p>The cost of living in Costa Rica is affordable compared to the US. Enjoy lower housing, food, and healthcare costs without compromising quality.</p>
+        <p>The cost of living in Costa Rica is significantly more affordable than in the United States, offering an excellent standard of living without breaking the bank. Housing options range from charming rural homes to 
+            modern city apartments, catering to a variety of budgets. Local markets provide fresh, organic produce at a fraction of US prices, while healthcare, renowned for its quality and accessibility, is one of the most
+             affordable globally. Retirees especially benefit from pensionado programs, which offer attractive perks and reduced costs. Living in Costa Rica means stretching your dollar further while enjoying a fulfilling and balanced lifestyle.</p>
+    </section>
+    <section class="country-image">
+        <img src="images/costa_rica/happy-2723487_640.jpg" alt="Beautiful Costa Rica cultures" style="width: 100%; height: auto;">
+    </section>
+
+    <section class="visa-info">
+        <h2>Visa Requirements</h2>
+        <p>Navigating visa requirements for Costa Rica is straightforward, making it a top choice for US citizens considering international relocation. A tourist visa allows stays of up to 90 days without any special applications. For longer stays, 
+            there are options tailored to retirees, professionals, and investors. The pensionado visa, for instance, is ideal for retirees with a steady income from pensions, while the rentista visa suits those with proof of financial independence.
+             Costa Rica’s residency process is clear, and many expats find it easy to transition from short visits to long-term stays, thanks to the country’s supportive policies and friendly environment.</p>
+        </section>
+    <section class="country-image">
+        <img src="images/costa_rica/frog-4048872_640.jpg" alt="Beautiful Costa Rica wildlife" style="width: 100%; height: auto;">
+    </section>
+
+    <section class="retirement-info">
+        <h2>Retirement</h2>
+        <p>Costa Rica has consistently ranked as one of the best countries for retirement, thanks to its welcoming environment and generous tax incentives. With programs like the pensionado visa and easy access to affordable healthcare,
+             retirees enjoy peace of mind and a rich quality of life.</p>      
+    </section>
+
+    <section class="map-container">
+        <h2>Where is Costa Rica?</h2>
+        <!-- Google Maps Embed -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7877262.762614914!2d-86.23851630706763!3d9.748916599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0bf8f8f1b64cf%3A0x88013d3b8f84399c!2sCosta%20Rica!5e0!3m2!1sen!2sus!4v1701546756601!5m2!1sen!2sus" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>
+    
+</body>
+</html>

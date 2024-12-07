@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <title>Mexixo</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Use the same CSS as other pages -->
+
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topcountries.html">Popular Countries</a></li>
+            <li><a href="form.html">Create a Post</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="honk">Let's Go</h1>
+   
+    <div class="nav-buttons">
+        <a href="#" onclick="showLogin()">Log In</a>
+        <a href="#" onclick="showRegister()">Register</a>
+    </div>
+
+    <!-- Login Popup -->
+    <div class="popup" id="loginPopup">
+        <form onsubmit="handleLogin(event)">
+            <h2>Log In</h2>
+            <input type="text" placeholder="Username or Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Register Popup -->
+    <div class="popup" id="registerPopup">
+        <form onsubmit="handleRegister(event)">
+            <h2>Register</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Re-type Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="search-container">
+        <form>
+            <input type="text" placeholder="Search" id="search">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="popup" id="successPopup">
+        <p id="popupMessage"></p>
+        <button onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+        // Show Login Popup
+        function showLogin() {
+            document.getElementById("loginPopup").style.display = "block";
+        }
+
+        // Show Register Popup
+        function showRegister() {
+            document.getElementById("registerPopup").style.display = "block";
+        }
+
+        // Hide All Popups
+        function hidePopup() {
+            document.getElementById("loginPopup").style.display = "none";
+            document.getElementById("registerPopup").style.display = "none";
+            document.getElementById("successPopup").style.display = "none";
+        }
+
+        // Handle Login Form Submission
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            hidePopup();
+            showSuccessMessage("Log In Successful!");
+        }
+
+        // Handle Register Form Submission
+        function handleRegister(event) {
+            event.preventDefault(); // Prevent form submission
+            hidePopup();
+            showSuccessMessage("Registration Successful!");
+        }
+
+        // Show Success Message Popup
+        function showSuccessMessage(message) {
+            const popup = document.getElementById("successPopup");
+            const popupMessage = document.getElementById("popupMessage");
+            popupMessage.textContent = message;
+            popup.style.display = "block";
+        }
+    </script>
+
+    <!-- Page Content -->
+    <header>
+        <h1>Welcome to Mexico</h1>
+        <p>Learn why Mexico is an amazing destination for US immigrants!</p>
+    </header>
+    
+    <section class="country-info">
+        <h2>Why Choose Mexico?</h2>
+        <p>Mexico offers a rich cultural heritage, stunning natural landscapes, and a cost of living that is significantly lower than in the United States. 
+           Whether you’re drawn to the vibrant cities, ancient ruins, or picturesque beaches, Mexico provides an excellent quality of life for immigrants. 
+           Friendly locals and diverse traditions make it a warm and welcoming place to live.</p>
+    </section>
+    
+    <section class="country-image">
+        <img src="images/Mexico/mexico-1474669_640.jpg" alt="Beautiful Mexico cityscape" style="width: 100%; height: auto;">
+    </section>
+    
+    <section class="living-info">
+        <h2>Cost of Living</h2>
+        <p>Living in Mexico is much more affordable than in the US. Housing, food, and transportation costs are significantly lower, allowing you to enjoy a high standard of living. 
+           Whether you prefer a bustling city like Mexico City or a quieter coastal town, there are options for every budget.</p>
+    </section>
+    
+    <section class="country-image">
+        <img src="images/Mexico/people-3339434_640.jpg" alt="Celebrating Mexican culture" style="width: 100%; height: auto;">
+    </section>
+    
+    <section class="visa-info">
+        <h2>Culture</h2>
+        <p>Mexican culture is vibrant and diverse, celebrated through festivals, music, and cuisine. From the Day of the Dead to mariachi music, 
+           the culture offers something unique to everyone. Food enthusiasts will love the variety, from tacos and tamales to regional specialties.</p>
+    </section>
+    
+    <section class="country-image">
+        <img src="images/Mexico/teotihuacan-1340799_1280.jpg" alt="Historic ruins of Teotihuacan in Mexico" style="width: 100%; height: auto;">
+    </section>
+    
+    <section class="map-container">
+        <h2>Where is Mexico?</h2>
+        <!-- Google Maps Embed -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14736570.870488506!2d-116.18085596114892!3d23.6345015055029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x867f7d3fbae04ed7%3A0x679cd0e41b6df391!2sMexico!5e0!3m2!1sen!2sus!4v1701546756601!5m2!1sen!2sus" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>    
+</body>
+</html>

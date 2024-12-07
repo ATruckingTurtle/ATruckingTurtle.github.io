@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <title>Switzerland</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Use the same CSS as other pages -->
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topcountries.html">Popular Countries</a></li>
+            <li><a href="form.html">Create a Post</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="honk">Let's Go</h1>
+
+    <div class="nav-buttons">
+        <a href="#" onclick="showLogin()">Log In</a>
+        <a href="#" onclick="showRegister()">Register</a>
+    </div>
+
+    <!-- Login Popup -->
+    <div class="popup" id="loginPopup">
+        <form onsubmit="handleLogin(event)">
+            <h2>Log In</h2>
+            <input type="text" placeholder="Username or Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Register Popup -->
+    <div class="popup" id="registerPopup">
+        <form onsubmit="handleRegister(event)">
+            <h2>Register</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Re-type Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="search-container">
+        <form>
+            <input type="text" placeholder="Search" id="search">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="popup" id="successPopup">
+        <p id="popupMessage"></p>
+        <button onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+        // Show Login Popup
+        function showLogin() {
+            document.getElementById("loginPopup").style.display = "block";
+        }
+
+        // Show Register Popup
+        function showRegister() {
+            document.getElementById("registerPopup").style.display = "block";
+        }
+
+        // Hide All Popups
+        function hidePopup() {
+            document.getElementById("loginPopup").style.display = "none";
+            document.getElementById("registerPopup").style.display = "none";
+            document.getElementById("successPopup").style.display = "none";
+        }
+
+        // Handle Login Form Submission
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            hidePopup();
+            showSuccessMessage("Log In Successful!");
+        }
+
+        // Handle Register Form Submission
+        function handleRegister(event) {
+            event.preventDefault(); // Prevent form submission
+            hidePopup();
+            showSuccessMessage("Registration Successful!");
+        }
+
+        // Show Success Message Popup
+        function showSuccessMessage(message) {
+            const popup = document.getElementById("successPopup");
+            const popupMessage = document.getElementById("popupMessage");
+            popupMessage.textContent = message;
+            popup.style.display = "block";
+        }
+    </script>
+
+    <!-- Page Content -->
+    <header>
+        <h1>Welcome to Switzerland</h1>
+        <p>Discover why Switzerland is an excellent destination for US immigrants!</p>
+    </header>
+
+    <section class="country-info">
+        <h2>Why Choose Switzerland?</h2>
+        <p>Switzerland is famous for its world-class quality of life, exceptional healthcare, and stunning landscapes. 
+           With a strong economy and excellent public services, it provides a high standard of living for its residents. 
+           Whether you’re seeking career opportunities or a serene lifestyle in the Alps, Switzerland offers the perfect balance.</p>
+    </section>
+
+    <section class="country-image">
+        <img src="images/Switzerland/schilthorn-3033448_1280.jpg" alt="Swiss Alps" style="width: 100%; height: auto;">
+    </section>
+
+    <section class="living-info">
+        <h2>Cost of Living</h2>
+        <p>Switzerland is known for its higher cost of living, but this is balanced by high wages, excellent healthcare, and superior public services. 
+           Cities like Zurich and Geneva are cosmopolitan hubs, while small alpine towns offer a quieter, more affordable lifestyle for those who prefer rural living.</p>
+    </section>
+
+    <section class="country-image">
+        <img src="images/Switzerland/A0F93A2C-D717-4F07-B996-038B8DBBAEB0_1_105_c.jpeg" alt="Zurich Cityscape" style="width: 100%; height: auto;">
+    </section>
+
+    <section class="visa-info">
+        <h2>Culture</h2>
+        <p>Switzerland is a blend of French, German, and Italian influences, creating a rich cultural tapestry. 
+           Known for its neutrality and peace, Switzerland values diversity and inclusivity. Enjoy traditional Swiss food like fondue and raclette or participate in vibrant local festivals throughout the year.</p>
+    </section>
+
+    <section class="country-image">
+        <img src="images/Switzerland/mountains-1516733_1280.jpg" alt="Lake Geneva" style="width: 100%; height: auto;">
+    </section>
+
+    <section class="map-container">
+        <h2>Where is Switzerland?</h2>
+        <!-- Google Maps Embed -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1399016.8273774667!2d6.046073349816219!3d46.79856242715162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e76e410d1d3d3%3A0x400bf8d1a57e290!2sSwitzerland!5e0!3m2!1sen!2sus!4v1701546756601!5m2!1sen!2sus" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>
+</body>
+</html>
