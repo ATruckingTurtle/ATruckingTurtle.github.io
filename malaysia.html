@@ -18,6 +18,80 @@
             <li><a href="form.html">Create a Post</a></li>
         </ul>
     </nav>
+    <div class="nav-buttons">
+        <a href="#" onclick="showLogin()">Log In</a>
+        <a href="#" onclick="showRegister()">Register</a>
+    </div>
+
+    <!-- Login Popup -->
+    <div class="popup" id="loginPopup">
+        <form onsubmit="handleLogin(event)">
+            <h2>Log In</h2>
+            <input type="text" placeholder="Username or Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Register Popup -->
+    <div class="popup" id="registerPopup">
+        <form onsubmit="handleRegister(event)">
+            <h2>Register</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Re-type Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="search-container">
+        <form>
+            <input type="text" placeholder="Search" id="search">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="popup" id="successPopup">
+        <p id="popupMessage"></p>
+        <button onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById("loginPopup").style.display = "block";
+        }
+
+        function showRegister() {
+            document.getElementById("registerPopup").style.display = "block";
+        }
+
+        function hidePopup() {
+            document.getElementById("loginPopup").style.display = "none";
+            document.getElementById("registerPopup").style.display = "none";
+            document.getElementById("successPopup").style.display = "none";
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            hidePopup();
+            showSuccessMessage("Log In Successful!");
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            hidePopup();
+            showSuccessMessage("Registration Successful!");
+        }
+
+        function showSuccessMessage(message) {
+            const popup = document.getElementById("successPopup");
+            const popupMessage = document.getElementById("popupMessage");
+            popupMessage.textContent = message;
+            popup.style.display = "block";
+        }
+    </script>
     <header>
         <h1>Discover Malaysia</h1>
         <img src="/Images/malaysia/malaysia-flag.png" alt="Malaysian Flag">
